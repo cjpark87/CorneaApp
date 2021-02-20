@@ -9,9 +9,10 @@ import UIKit
 import AVFoundation
 import Photos
 
-class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelegate, ItemSelectionViewControllerDelegate {
+class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelegate, AVCaptureVideoDataOutputSampleBufferDelegate, ItemSelectionViewControllerDelegate {
     
     private var spinner: UIActivityIndicatorView!
+    private var imageProcessor: ImageProcessor!
     
     var windowOrientation: UIInterfaceOrientation {
         return view.window?.windowScene?.interfaceOrientation ?? .unknown
@@ -21,6 +22,8 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        imageProcessor = ImageProcessor()
         
         // Disable the UI. Enable the UI later, if and only if the session starts running.
         cameraButton.isEnabled = false
@@ -191,6 +194,7 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
     private var setupResult: SessionSetupResult = .success
     
     @objc dynamic var videoDeviceInput: AVCaptureDeviceInput!
+    @objc dynamic var videoDataOutput: AVCaptureVideoDataOutput!
     
     @IBOutlet private weak var previewView: PreviewView!
     
@@ -231,10 +235,15 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
                 return
             }
             let videoDeviceInput = try AVCaptureDeviceInput(device: videoDevice)
+            let videoDataOutput = AVCaptureVideoDataOutput()
             
-            if session.canAddInput(videoDeviceInput) {
+            if session.canAddInput(videoDeviceInput) && session.canAddOutput(videoDataOutput) {
                 session.addInput(videoDeviceInput)
                 self.videoDeviceInput = videoDeviceInput
+               
+                videoDataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "frame buffer"))
+                session.addOutput(videoDataOutput)
+                self.videoDataOutput = videoDataOutput
                 
                 DispatchQueue.main.async {
                     /*
@@ -500,19 +509,25 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
             if let videoDevice = newVideoDevice {
                 do {
                     let videoDeviceInput = try AVCaptureDeviceInput(device: videoDevice)
+                    let videoDataOutput = AVCaptureVideoDataOutput()
                     
                     self.session.beginConfiguration()
                     
                     // Remove the existing device input first, because AVCaptureSession doesn't support
                     // simultaneous use of the rear and front cameras.
                     self.session.removeInput(self.videoDeviceInput)
+                    self.session.removeOutput(self.videoDataOutput)
                     
-                    if self.session.canAddInput(videoDeviceInput) {
+                    if self.session.canAddInput(videoDeviceInput) && self.session.canAddOutput(videoDataOutput) {
                         NotificationCenter.default.removeObserver(self, name: .AVCaptureDeviceSubjectAreaDidChange, object: currentVideoDevice)
                         NotificationCenter.default.addObserver(self, selector: #selector(self.subjectAreaDidChange), name: .AVCaptureDeviceSubjectAreaDidChange, object: videoDeviceInput.device)
                         
                         self.session.addInput(videoDeviceInput)
                         self.videoDeviceInput = videoDeviceInput
+                        
+                        videoDataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "frame buffer"))
+                        self.session.addOutput(videoDataOutput)
+                        self.videoDataOutput = videoDataOutput
                     } else {
                         self.session.addInput(self.videoDeviceInput)
                     }
@@ -592,6 +607,15 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
         }
     }
     
+    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
+        print("Got a frame!")
+    }
+    
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        print("Got a frame!")
+        guard let uiImage = imageProcessor.imageFromSampleBuffer(sampleBuffer: sampleBuffer) else { return }
+    }
+    
     // MARK: Capturing Photos
     
     private let photoOutput = AVCapturePhotoOutput()
@@ -621,7 +645,8 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
             }
             
             if self.videoDeviceInput.device.isFlashAvailable {
-                photoSettings.flashMode = .auto
+                //photoSettings.flashMode = .auto
+                photoSettings.flashMode = .off
             }
             
             photoSettings.isHighResolutionPhotoEnabled = true

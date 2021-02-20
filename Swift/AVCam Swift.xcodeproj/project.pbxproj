@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1ACB0D8E25DE45FB00EC5FD4 /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACB0D8D25DE45FB00EC5FD4 /* ImageProcessor.swift */; };
+		1AECA69625DF9FA800980B8F /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AECA69525DF9FA800980B8F /* opencv2.framework */; };
+		1AECA6A225DFA17E00980B8F /* ImageProcessorBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1AECA6A125DFA17E00980B8F /* ImageProcessorBridge.mm */; };
 		2C6C46E5226AF339007D07EB /* ItemSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6C46E4226AF339007D07EB /* ItemSelectionViewController.swift */; };
 		7697F939217A94FB0011862B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7697F938217A94FB0011862B /* README.md */; };
 		7AA677151CFF765600B353FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA677141CFF765600B353FB /* AppDelegate.swift */; };
@@ -19,6 +22,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1ACB0D8D25DE45FB00EC5FD4 /* ImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
+		1AECA69525DF9FA800980B8F /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = Frameworks/opencv2.framework; sourceTree = "<group>"; };
+		1AECA6A125DFA17E00980B8F /* ImageProcessorBridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageProcessorBridge.mm; sourceTree = "<group>"; };
+		1AECA6A325DFA1AA00980B8F /* AVCam-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVCam-Bridging-Header.h"; sourceTree = "<group>"; };
+		1AECA6A425DFA20600980B8F /* ImageProcessorBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageProcessorBridge.h; sourceTree = "<group>"; };
+		1AECA6A825DFAF8000980B8F /* AVCam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AVCam.entitlements; sourceTree = "<group>"; };
 		2C6C46E4226AF339007D07EB /* ItemSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSelectionViewController.swift; sourceTree = "<group>"; };
 		7697F938217A94FB0011862B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		7AA677111CFF765600B353FB /* AVCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AVCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -30,8 +39,8 @@
 		7AA677201CFF765600B353FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AA677261CFF774800B353FB /* PhotoCaptureDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCaptureDelegate.swift; sourceTree = "<group>"; };
 		7AA677281CFF7B5C00B353FB /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
-		D4D50724A9FAAAE2653232EA /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE.txt; sourceTree = "<group>"; };
-		F832D8CBECBB204152E1E99B /* SampleCode.xcconfig */ = {isa = PBXFileReference; name = SampleCode.xcconfig; path = ../Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
+		D4D50724A9FAAAE2653232EA /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		F832D8CBECBB204152E1E99B /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = ../Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,12 +48,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AECA69625DF9FA800980B8F /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1ACB0D9825DF10BC00EC5FD4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1AECA69525DF9FA800980B8F /* opencv2.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1AECA6A525DFA20B00980B8F /* ImageProcessor */ = {
+			isa = PBXGroup;
+			children = (
+				1ACB0D8D25DE45FB00EC5FD4 /* ImageProcessor.swift */,
+				1AECA6A125DFA17E00980B8F /* ImageProcessorBridge.mm */,
+				1AECA6A425DFA20600980B8F /* ImageProcessorBridge.h */,
+			);
+			path = ImageProcessor;
+			sourceTree = "<group>";
+		};
 		3ED39896C9EF62134C9B2D4C /* LICENSE */ = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +90,7 @@
 				7AA677121CFF765600B353FB /* Products */,
 				DF594A7680971C5690D94783 /* Configuration */,
 				3ED39896C9EF62134C9B2D4C /* LICENSE */,
+				1ACB0D9825DF10BC00EC5FD4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,6 +105,8 @@
 		7AA677131CFF765600B353FB /* AVCam */ = {
 			isa = PBXGroup;
 			children = (
+				1AECA6A825DFAF8000980B8F /* AVCam.entitlements */,
+				1AECA6A525DFA20B00980B8F /* ImageProcessor */,
 				7AA677141CFF765600B353FB /* AppDelegate.swift */,
 				7AA677281CFF7B5C00B353FB /* PreviewView.swift */,
 				7AA677161CFF765600B353FB /* CameraViewController.swift */,
@@ -85,6 +116,7 @@
 				7AA6771B1CFF765600B353FB /* Assets.xcassets */,
 				7AA6771D1CFF765600B353FB /* LaunchScreen.storyboard */,
 				7AA677201CFF765600B353FB /* Info.plist */,
+				1AECA6A325DFA1AA00980B8F /* AVCam-Bridging-Header.h */,
 			);
 			path = AVCam;
 			sourceTree = "<group>";
@@ -129,8 +161,8 @@
 				TargetAttributes = {
 					7AA677101CFF765500B353FB = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = A93A5CM278;
-						LastSwiftMigration = 1100;
+						DevelopmentTeam = T34732CRTE;
+						LastSwiftMigration = 1240;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -173,9 +205,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AA677271CFF774800B353FB /* PhotoCaptureDelegate.swift in Sources */,
+				1AECA6A225DFA17E00980B8F /* ImageProcessorBridge.mm in Sources */,
 				7AA677291CFF7B5C00B353FB /* PreviewView.swift in Sources */,
 				7AA677171CFF765600B353FB /* CameraViewController.swift in Sources */,
 				7AA677151CFF765600B353FB /* AppDelegate.swift in Sources */,
+				1ACB0D8E25DE45FB00EC5FD4 /* ImageProcessor.swift in Sources */,
 				2C6C46E5226AF339007D07EB /* ItemSelectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,17 +356,28 @@
 			baseConfigurationReference = F832D8CBECBB204152E1E99B /* SampleCode.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = AVCam/AVCam.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = T34732CRTE;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = AVCam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.AVCam${SAMPLE_CODE_DISAMBIGUATOR}";
+				OTHER_CODE_SIGN_FLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.washington.corneaapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "AVCam/AVCam-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Debug;
 		};
@@ -341,17 +386,27 @@
 			baseConfigurationReference = F832D8CBECBB204152E1E99B /* SampleCode.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = AVCam/AVCam.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = T34732CRTE;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = AVCam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.AVCam${SAMPLE_CODE_DISAMBIGUATOR}";
+				OTHER_CODE_SIGN_FLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.washington.corneaapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "AVCam/AVCam-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Release;
 		};
