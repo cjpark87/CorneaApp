@@ -152,10 +152,7 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
     
     override var shouldAutorotate: Bool {
         // Disable autorotation of the interface when recording is in progress.
-        if let movieFileOutput = movieFileOutput {
-            return !movieFileOutput.isRecording
-        }
-        return true
+        return false
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
