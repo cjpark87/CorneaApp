@@ -13,6 +13,7 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
     
     private var spinner: UIActivityIndicatorView!
     private var imageProcessor: ImageProcessor!
+    private var volumeHandler: JPSVolumeButtonHandler?
     
     var windowOrientation: UIInterfaceOrientation {
         return view.window?.windowScene?.interfaceOrientation ?? .unknown
@@ -38,6 +39,10 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
         
         // Set up the video preview view.
         previewView.session = session
+        
+        // Set up volume button for image capture
+        self.volumeHandler = JPSVolumeButtonHandler(up: {self.capturePhoto(self.photoButton)}, downBlock: {self.capturePhoto(self.photoButton)})
+        self.volumeHandler?.start(true)
         /*
          Check the video authorization status. Video access is required and audio
          access is optional. If the user denies audio access, AVCam won't

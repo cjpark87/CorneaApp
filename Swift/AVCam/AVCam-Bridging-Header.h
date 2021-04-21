@@ -3,3 +3,4 @@
 //
 
 #import "ImageProcessorBridge.h"
+#import "JPSVolumeButtonHandler/JPSVolumeButtonHandler.h"
