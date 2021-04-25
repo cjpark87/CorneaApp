@@ -43,6 +43,10 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
         // Set up volume button for image capture
         self.volumeHandler = JPSVolumeButtonHandler(up: {self.capturePhoto(self.photoButton)}, downBlock: {self.capturePhoto(self.photoButton)})
         self.volumeHandler?.start(true)
+        
+        //portrait mode
+        let value = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
         /*
          Check the video authorization status. Video access is required and audio
          access is optional. If the user denies audio access, AVCam won't
@@ -541,7 +545,7 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
                     
                     /*
                      Set Live Photo capture and depth data delivery if it's supported. When changing cameras, the
-                     `livePhotoCaptureEnabled` and `depthDataDeliveryEnabled` properties of the AVCapturePhotoOutput
+                     `CaptureEnabled` and `depthDataDeliveryEnabled` properties of the AVCapturePhotoOutput
                      get set to false when a video device is disconnected from the session. After the new video device is
                      added to the session, re-enable them on the AVCapturePhotoOutput, if supported.
                      */
