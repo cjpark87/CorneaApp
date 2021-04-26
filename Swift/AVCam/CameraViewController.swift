@@ -43,10 +43,7 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
         // Set up volume button for image capture
         self.volumeHandler = JPSVolumeButtonHandler(up: {self.capturePhoto(self.photoButton)}, downBlock: {self.capturePhoto(self.photoButton)})
         self.volumeHandler?.start(true)
-        
-        //portrait mode
-        let value = UIInterfaceOrientation.portrait.rawValue
-        UIDevice.current.setValue(value, forKey: "orientation")
+
         /*
          Check the video authorization status. Video access is required and audio
          access is optional. If the user denies audio access, AVCam won't
