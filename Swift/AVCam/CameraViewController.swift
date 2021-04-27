@@ -305,9 +305,12 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
             photoOutput.enabledSemanticSegmentationMatteTypes = photoOutput.availableSemanticSegmentationMatteTypes
             selectedSemanticSegmentationMatteTypes = photoOutput.availableSemanticSegmentationMatteTypes
             photoOutput.maxPhotoQualityPrioritization = .quality
-            livePhotoMode = photoOutput.isLivePhotoCaptureSupported ? .on : .off
-            depthDataDeliveryMode = photoOutput.isDepthDataDeliverySupported ? .on : .off
-            portraitEffectsMatteDeliveryMode = photoOutput.isPortraitEffectsMatteDeliverySupported ? .on : .off
+            //livePhotoMode = photoOutput.isLivePhotoCaptureSupported ? .on : .off
+            livePhotoMode = .off
+            //depthDataDeliveryMode = photoOutput.isDepthDataDeliverySupported ? .on : .off
+            depthDataDeliveryMode = .off
+            //portraitEffectsMatteDeliveryMode = photoOutput.isPortraitEffectsMatteDeliverySupported ? .on : .off
+            portraitEffectsMatteDeliveryMode = .off
             photoQualityPrioritizationMode = .balanced
             
         } else {
