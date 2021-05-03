@@ -19,6 +19,13 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
         return view.window?.windowScene?.interfaceOrientation ?? .unknown
     }
 
+    @IBAction func showguideline(_ sender: Any) {
+        let alertController = UIAlertController(title: "Guidelines", message:
+            "Center eye on the middle of rings and press yellow button or volume button to capture.", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Got it!", style: .default))
+
+        self.present(alertController, animated: true, completion: nil)
+    }
     // MARK: View Controller Life Cycle
     
     override func viewDidLoad() {

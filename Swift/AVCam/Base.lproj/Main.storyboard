@@ -132,6 +132,14 @@
                                     <action selector="togglePhotoQualityPrioritizationMode:" destination="BYZ-38-t0r" eventType="valueChanged" id="gE0-U8-CTj"/>
                                 </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8oN-Cy-X43">
+                                <rect key="frame" x="15" y="837" width="90" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Guideline"/>
+                                <connections>
+                                    <action selector="showguideline:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jaj-NY-aFV"/>
+                                </connections>
+                            </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleAspectFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kbl-qj-uoj" userLabel="SSM">
                                 <rect key="frame" x="334" y="59" width="50" height="50"/>
                                 <constraints>
@@ -229,6 +237,7 @@
                             <constraint firstItem="rUJ-G6-RPv" firstAttribute="top" secondItem="nyU-fN-aJh" secondAttribute="top" constant="30" id="WGW-f8-ThP" userLabel="Camera.top = Safe Area.top + 10">
                                 <variation key="heightClass=compact" constant="20"/>
                             </constraint>
+                            <constraint firstAttribute="bottom" secondItem="8oN-Cy-X43" secondAttribute="bottom" constant="20" id="YrZ-9A-PYJ"/>
                             <constraint firstItem="uCj-6P-mHF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ZGJ-Ly-Ppb"/>
                             <constraint firstItem="uCj-6P-mHF" firstAttribute="height" secondItem="rUJ-G6-RPv" secondAttribute="height" id="aQi-F7-E2b"/>
                             <constraint firstItem="nyU-fN-aJh" firstAttribute="trailing" secondItem="uCj-6P-mHF" secondAttribute="trailing" constant="40" id="b0r-sh-cwd"/>
@@ -260,6 +269,7 @@
                             <constraint firstItem="uCj-6P-mHF" firstAttribute="width" secondItem="eRT-dK-6dM" secondAttribute="width" id="s8u-Y8-n27"/>
                             <constraint firstItem="Pii-2r-R2l" firstAttribute="top" secondItem="9i1-NX-Qxg" secondAttribute="bottom" constant="50" id="sNQ-wG-QKR"/>
                             <constraint firstItem="FZr-Ip-7WL" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="sTY-i6-czN"/>
+                            <constraint firstItem="8oN-Cy-X43" firstAttribute="leading" secondItem="nyU-fN-aJh" secondAttribute="leading" constant="15" id="tXU-Oq-KTT"/>
                             <constraint firstItem="nyU-fN-aJh" firstAttribute="bottom" secondItem="eI6-gV-W7d" secondAttribute="bottom" constant="30" id="vVo-dd-B0t">
                                 <variation key="heightClass=compact" constant="30"/>
                             </constraint>
