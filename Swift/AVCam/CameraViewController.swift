@@ -18,10 +18,10 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
     var windowOrientation: UIInterfaceOrientation {
         return view.window?.windowScene?.interfaceOrientation ?? .unknown
     }
-
+    // Add in a pop-up guidelines
     @IBAction func showguideline(_ sender: Any) {
         let alertController = UIAlertController(title: "Guidelines", message:
-            "Center eye on the middle of rings and press yellow button or volume button to capture.", preferredStyle: .alert)
+            "1. Switch to front camera  2. Center eye on the middle of rings  3. Press camera button at the bottom or volume button to capture", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Got it!", style: .default))
 
         self.present(alertController, animated: true, completion: nil)

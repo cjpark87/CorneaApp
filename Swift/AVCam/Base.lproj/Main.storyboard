@@ -200,7 +200,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="NewRingsSmall-&gt;Large" translatesAutoresizingMaskIntoConstraints="NO" id="vbG-Fy-eSY">
-                                <rect key="frame" x="-141" y="-203" width="776" height="809"/>
+                                <rect key="frame" x="-141" y="-226" width="776" height="809"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
