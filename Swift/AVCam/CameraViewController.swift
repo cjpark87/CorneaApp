@@ -18,10 +18,18 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
     var windowOrientation: UIInterfaceOrientation {
         return view.window?.windowScene?.interfaceOrientation ?? .unknown
     }
-    // Add in a pop-up guidelines
+    // Add in a pop-up guidelines for keratoconus
     @IBAction func showguideline(_ sender: Any) {
-        let alertController = UIAlertController(title: "Guidelines", message:
-            "1. Switch to front camera  2. Center eye on the middle of rings  3. Press camera button at the bottom or volume button to capture", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Instruction - Keratoconus", message:
+            "For Keratoconus: 1. Use front camera  2. Brightness of screen set to max 3. Use app in a low light environment 4. Stare at the middle of rings  5. Press camera button or volume button to capture", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Got it!", style: .default))
+
+        self.present(alertController, animated: true, completion: nil)
+    }
+    // Add in a pop-up guidelines for general eye disease
+    @IBAction func showGeneralDiseases(_ sender: Any) {
+        let alertController = UIAlertController(title: "Instruction - General Eye Diseases", message:
+            "1. Use back camera 2. Make sure there is no bright light source (ex. TV, opened window) 3. Stare at the lens 4. Press camera button or volume button to capture", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Got it!", style: .default))
 
         self.present(alertController, animated: true, completion: nil)
