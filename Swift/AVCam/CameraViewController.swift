@@ -21,7 +21,7 @@ class CameraViewController: UIViewController, AVCaptureFileOutputRecordingDelega
     // Add in a pop-up guidelines for keratoconus
     @IBAction func showguideline(_ sender: Any) {
         let alertController = UIAlertController(title: "Instruction - Keratoconus", message:
-            "For Keratoconus: 1. Use front camera  2. Brightness of screen set to max 3. Use app in a low light environment 4. Stare at the middle of rings  5. Press camera button or volume button to capture", preferredStyle: .alert)
+            "1. Use front camera  2. Brightness of screen set to max 3. Use app in a low light environment 4. Stare at the middle of rings  5. Press camera button or volume button to capture", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Got it!", style: .default))
 
         self.present(alertController, animated: true, completion: nil)

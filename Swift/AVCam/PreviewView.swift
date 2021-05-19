@@ -15,7 +15,7 @@ class PreviewView: UIView {
             fatalError("Expected `AVCaptureVideoPreviewLayer` type for layer. Check PreviewView.layerClass implementation.")
         }
         //layer.frame = CGRect(x:0, y:290, width:400, height:435) // iphone Xs
-        layer.frame = CGRect(x:0, y:410, width:400, height:290)
+        layer.frame = CGRect(x:0, y:410, width:400, height:320)
         layer.videoGravity = .resize
         return layer
     }
